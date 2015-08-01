@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ke</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/normalize/3.0.3/normalize.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <h1>KE</h1>
+  <section id="content">
+    <form id="search_form" method="get" action="http://www.google.com/search">
+      <!-- <i id="undo_search_key" class="fa fa-undo fa-4x"></i> -->
+      <i id="clear_search_key" class="fa fa-remove fa-4x"></i>
+      <!-- <input type="button" id="clear_search_key" value="クリア"> -->
+      <!-- <i id="back_search_key" class="fa fa-arrow-left fa-4x"></i> -->
+      <br>
+      <input type="text" name="q" id="search_key" maxlength="255">
+      <input type="hidden" name="ie" value="utf-8">
+      <input type="hidden" name="oe" value="utf-8">
+      <input type="hidden" name="hl" value="ja">
+      <label for="submit_search_key" class="fa fa-search fa-4x"></label>
+      <input type="submit" id="submit_search_key" name="btnG" class="display_none">
+    </form>
+    <div id="related_term_area">
+      <h4 id="related_term_key"></h4>
+      <p id="related_term"></p>
+    </div>
+  </section>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="lib/jquery.xdomainajax.js"></script>
+  <script src="js/kizashi.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

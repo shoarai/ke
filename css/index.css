@@ -1,0 +1,71 @@
+body {
+  font-size: 62.5%;
+  /*background-color: #000;*/
+}
+
+h1 {
+  margin: 0px;
+  padding: 5px;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #000;
+}
+
+#content {
+  padding: 40px 20px 0;
+}
+
+#search_form {
+  text-align: center;
+}
+
+#search_key {
+  width: 50%;
+  /*text-align: center;*/
+  font-size: 2.0rem;
+}
+
+#search_key {
+  margin: 10px 15px 0 0;
+}
+
+#related_term_area {
+  margin-top: 70px;
+  font-size: 2.0rem;
+  text-align: center;
+  /*color: #fff;*/
+  word-wrap: break-word;
+}
+
+#related_term_key {
+  margin: 0;
+}
+
+#related_term {
+  margin: 0;
+}
+
+.term {
+  margin: 0 0 0 10px;
+}
+
+.term:nth-child(odd) {
+  color: #999;
+}
+
+.fa:hover,
+.term:hover {
+  position: relative;
+  color: #00a6d8;
+}
+
+.term:hover:after {
+  position: absolute;
+  top: -9px;
+  left: -25px;
+  content: '↑';
+}
+
+.display_none {
+  display: none;
+}
