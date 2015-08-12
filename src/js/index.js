@@ -1,6 +1,6 @@
 $(function() {
   'use strict';
-  let kizashi = require('./kizashi');
+  let kizapi = require('./kizapi');
 
   let _prevKey = null;
 
@@ -17,7 +17,7 @@ $(function() {
     }
 
     _prevKey = key;
-    kizashi.getRelatedTerm('1m', key).done(function(data) {
+    kizapi.getRelatedTerms(key, '1m').done(function(data) {
       let msg = '「' + key + '」の関連語';
       $('#related_term_key').text(msg);
 

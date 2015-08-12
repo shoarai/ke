@@ -1,25 +1,25 @@
 /**
- * @fileOverview Kizashi API
+ * @fileOverview kizapi API
  */
- $(function() {
+ (function(global) {
   'use strict';
 
-  var kizashi = {
+  var kizapi = {
     /**
      * 関連語を取得する
+     * @param    {string}   key   検索語
      * @param    {string}   span  '24', '1w' or '1m'
-     * @param    {string}   key   Keyword for search
      * @return   {object}         レスポンス
      * @property {string[]} terms 関連語
      */
-    getRelatedTerm: function(span, key) {
-      let defer = $.Deferred();
+    getRelatedTerms: function(key, span) {
+      var defer = $.Deferred();
       if (this._reqFlag && this._reqId.abort) {
         this._reqId.abort();
       }
       this._reqFlag = true;
 
-      let that = this;
+      var that = this;
       this._reqId = $.ajax({
         type: 'GET',
         url: 'http://kizasi.jp/kizapi.py',
@@ -29,14 +29,14 @@
           type: 'coll'
         }
       }).done(function(data, statusText, jqXHR) {
-        let xml = data.results[0];
-        let json = $.parseXML(xml);
+        var xml = data.results[0];
+        var json = $.parseXML(xml);
 
-        let terms = [];
+        var terms = [];
         $(xml).find('channel').find('item').each(function() {
-          let item = $(this).text();
-          let items = item.split(/\r?\n/g);
-          let term = items[1].trim();
+          var item = $(this).text();
+          var items = item.split(/\r?\n/g);
+          var term = items[1].trim();
           terms.push(term);
         });
 
@@ -53,5 +53,9 @@
     _reqFlag: false
   };
 
-  module.exports = kizasi;
-}())
+  // if ('process' in global) {
+    module.exports = kizapi;
+  // }
+  // global.kizapi = kizapi;
+
+}((this || 0).self || global));
