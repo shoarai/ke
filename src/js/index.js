@@ -1,11 +1,11 @@
 $(function() {
   'use strict';
-  let kizapi = require('./kizapi');
+  var kizapi = require('./kizapi');
 
-  let _prevKey = null;
+  var _prevKey = null;
 
-  let _showRelatedTerm = function() {
-    let key = $('#search_key').val();
+  var _showRelatedTerm = function() {
+    var key = $('#search_key').val();
     if (key === _prevKey) {
       return;
     }
@@ -18,12 +18,12 @@ $(function() {
 
     _prevKey = key;
     kizapi.getRelatedTerms(key, '1m').done(function(data) {
-      let msg = '「' + key + '」の関連語';
+      var msg = '「' + key + '」の関連語';
       $('#related_term_key').text(msg);
 
-      let html = '';
-      let terms = data.terms;
-      for (let i = 0, len = terms.length; i < len; i++) {
+      var html = '';
+      var terms = data.terms;
+      for (var i = 0, len = terms.length; i < len; i++) {
         // html += terms[i] + '&nbsp;';
         html += '<span class="term">' + terms[i] + '</span>&nbsp;';
       }
@@ -35,7 +35,7 @@ $(function() {
     });
   };
 
-  let _bindView = function() {
+  var _bindView = function() {
     $('#search_form').on('keydown', function(event) {
       // ENTER KEY
       if (event.keyCode === 13) {
@@ -67,7 +67,7 @@ $(function() {
     });
 
     $('#related_term').on('click', '.term', function() {
-      let key = $('#search_key').val().trim();
+      var key = $('#search_key').val().trim();
       $('#search_key').val(key + ' ' + $(this).text());
       _showRelatedTerm();
     });
