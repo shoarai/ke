@@ -34,7 +34,8 @@ gulp.task('watch', ['build'], function() {
   gulp.watch(['src/*.html', 'src/css/**', 'src/lib/**'], ['copy']);
 });
 
-gulp.task('deploy', ['build'], function() {
+// gulp.task('deploy', ['build'], function() {
+gulp.task('deploy', function() {
   return gulp.src('dist/**')
     .pipe(ftp(ftpConfig))
     .pipe(gutil.noop());
